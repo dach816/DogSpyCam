@@ -9,35 +9,42 @@ namespace DogSpyCam
     {
         private readonly IVideoClient _videoClient;
 
-        public CameraService(
-            IVideoClient videoClient)
+        public CameraService(IVideoClient videoClient)
         {
             _videoClient = videoClient;
         }
 
         public async Task StartAsync(CancellationToken cancellationToken)
         {
+            Console.WriteLine("Starting...");
+            Console.WriteLine("Type start to start");
             while (!cancellationToken.IsCancellationRequested)
             {
-                var input = Console.ReadLine();
-                if (input == null)
+                try
                 {
-                    continue;
-                }
+                    Console.WriteLine("Waiting for input...");
+                    var input = Console.ReadLine();
+                    if (input == null)
+                    {
+                        continue;
+                    }
 
-                if (input.Equals("start", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    await _videoClient.TakeVideo(cancellationToken);
+                    if (input.Equals("start", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        Console.WriteLine("Starting video...");
+                        await _videoClient.TakeVideo(cancellationToken);
+                    }
                 }
-                else if (input.Equals("stop", StringComparison.InvariantCultureIgnoreCase))
+                catch (Exception e)
                 {
-                    await StopAsync(cancellationToken);
+                    Console.WriteLine(e);
                 }
             }
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
+            Console.WriteLine("Stopping...");
             return Task.CompletedTask;
         }
     }

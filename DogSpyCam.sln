@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogSpyCam", "DogSpyCam\DogSpyCam.csproj", "{4D3C1810-F1BE-4DEA-BC9A-4BB5E8E8EAFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogSpyCam", "DogSpyCam.csproj", "{4D3C1810-F1BE-4DEA-BC9A-4BB5E8E8EAFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

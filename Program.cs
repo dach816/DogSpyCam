@@ -24,9 +24,11 @@ namespace DogSpyCam
                         services.AddOptions();
                         services.AddHostedService<CameraService>();
 
-                        services.AddSingleton<IVideoClient, VideoClient>();
-
-                        //TODO use video config
+                        services.AddSingleton<IVideoClient>(x =>
+                        {
+                            var config = x.GetService<IOptions<VideoConfig>>();
+                            return new VideoClient(config.VideoSavePath);
+                        });
                     });
                 await hostBuilder.RunConsoleAsync();
             }
