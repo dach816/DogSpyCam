@@ -14,8 +14,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MMALSharp" Version="0.5.1"/>
-    <PackageReference Include="MMALSharp.FFmpeg" Version="0.5.0"/>
     <PackageReference Include="Microsoft.AspNetCore.App"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CameraClient\CameraClient.csproj"/>
   </ItemGroup>
 </Project>

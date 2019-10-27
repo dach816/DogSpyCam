@@ -7,7 +7,7 @@ using MMALSharp.Handlers;
 using MMALSharp.Native;
 using MMALSharp.Ports;
 
-namespace DogSpyCam
+namespace CameraClient
 {
     public class VideoClient : IVideoClient
     {
@@ -19,7 +19,6 @@ namespace DogSpyCam
 
         public async Task TakeVideo(CancellationToken cancellationToken)
         {
-            MMALCameraConfig.Rotation = 270;
             var cam = MMALCamera.Instance;
 
             Console.WriteLine($"Video path: {_videoSavePath}Millie{DateTime.Now:s}");
@@ -30,6 +29,7 @@ namespace DogSpyCam
                 using (var renderer = new MMALVideoRenderer())
                 {
                     cam.ConfigureCameraSettings(); 
+                    MMALCameraConfig.Rotation = 270;
 
                     var portConfig = new MMALPortConfig(MMALEncoding.H264, MMALEncoding.I420, 10, MMALVideoEncoder.MaxBitrateLevel4, null);
 

@@ -1,8 +1,10 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogSpyCam", "DogSpyCam\DogSpyCam.csproj", "{4D3C1810-F1BE-4DEA-BC9A-4BB5E8E8EAFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraClient", "CameraClient\CameraClient.csproj", "{AF5DBE38-A128-4BAB-BA18-91F29D5DBBE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,6 +16,10 @@ Global
 		{4D3C1810-F1BE-4DEA-BC9A-4BB5E8E8EAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D3C1810-F1BE-4DEA-BC9A-4BB5E8E8EAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D3C1810-F1BE-4DEA-BC9A-4BB5E8E8EAFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF5DBE38-A128-4BAB-BA18-91F29D5DBBE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF5DBE38-A128-4BAB-BA18-91F29D5DBBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF5DBE38-A128-4BAB-BA18-91F29D5DBBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF5DBE38-A128-4BAB-BA18-91F29D5DBBE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
