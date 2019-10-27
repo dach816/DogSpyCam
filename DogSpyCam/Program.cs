@@ -17,7 +17,7 @@ namespace DogSpyCam
                 var hostBuilder = new HostBuilder()
                     .ConfigureAppConfiguration((hostingContext, config) =>
                     {
-                        config.AddJsonFile("appsettings.json", optional: true);
+                        config.AddJsonFile("appsettings.json");
                         config.AddEnvironmentVariables();
                     })
                     .ConfigureServices((hostContext, services) =>
@@ -25,6 +25,7 @@ namespace DogSpyCam
                         services.AddOptions();
                         services.AddHostedService<CameraService>();
 
+                        services.Configure<VideoConfig>(hostContext.Configuration.GetSection("Video"));
                         services.AddSingleton<IVideoClient>(x =>
                         {
                             var config = x.GetService<IOptions<VideoConfig>>().Value;

@@ -22,28 +22,36 @@ namespace DogSpyCam
             MMALCameraConfig.Rotation = 270;
             var cam = MMALCamera.Instance;
 
-            using (var ffCaptureHandler = FFmpegCaptureHandler.RawVideoToAvi(_videoSavePath, $"Millie{DateTime.Now:s}"))
-            using (var vidEncoder = new MMALVideoEncoder(ffCaptureHandler))
-            using (var renderer = new MMALVideoRenderer())
-            {
-                cam.ConfigureCameraSettings(); 
+            Console.WriteLine($"Video path: {_videoSavePath}Millie{DateTime.Now:s}");
 
-                var portConfig = new MMALPortConfig(MMALEncoding.H264, MMALEncoding.I420, 10, MMALVideoEncoder.MaxBitrateLevel4, null);
+            try {
+                using (var ffCaptureHandler = FFmpegCaptureHandler.RawVideoToAvi(_videoSavePath, $"Millie{DateTime.Now:s}"))
+                using (var vidEncoder = new MMALVideoEncoder(ffCaptureHandler))
+                using (var renderer = new MMALVideoRenderer())
+                {
+                    cam.ConfigureCameraSettings(); 
 
-                // Create our component pipeline. Here we are using the H.264 standard with a YUV420 pixel format. The video will be taken at 25Mb/s.
-                vidEncoder.ConfigureOutputPort(portConfig);
+                    var portConfig = new MMALPortConfig(MMALEncoding.H264, MMALEncoding.I420, 10, MMALVideoEncoder.MaxBitrateLevel4, null);
 
-                cam.Camera.VideoPort.ConnectTo(vidEncoder);
-                cam.Camera.PreviewPort.ConnectTo(renderer);
-                                
-                // Camera warm up time
-                await Task.Delay(2000, cancellationToken);
-                
-                await cam.ProcessAsync(cam.Camera.VideoPort, cancellationToken);
+                    // Create our component pipeline. Here we are using the H.264 standard with a YUV420 pixel format. The video will be taken at 25Mb/s.
+                    vidEncoder.ConfigureOutputPort(portConfig);
+
+                    cam.Camera.VideoPort.ConnectTo(vidEncoder);
+                    cam.Camera.PreviewPort.ConnectTo(renderer);
+                                    
+                    // Camera warm up time
+                    await Task.Delay(2000, cancellationToken);
+                    
+                    await cam.ProcessAsync(cam.Camera.VideoPort, cancellationToken);
+                }
             }
-
-            // Only call when you no longer require the camera, i.e. on app shutdown.
-            cam.Cleanup();
+            catch (Exception ex){
+                Console.WriteLine(ex);
+            }
+            finally {
+                // Only call when you no longer require the camera, i.e. on app shutdown.
+                cam.Cleanup();
+            }
         }
     }
 }

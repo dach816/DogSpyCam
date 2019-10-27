@@ -17,7 +17,7 @@ namespace DogSpyCam
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             Console.WriteLine("Starting...");
-            Console.WriteLine("Type start to start");
+            Console.WriteLine("Type start or stop");
             while (!cancellationToken.IsCancellationRequested)
             {
                 try
@@ -33,6 +33,10 @@ namespace DogSpyCam
                     {
                         Console.WriteLine("Starting video...");
                         await _videoClient.TakeVideo(cancellationToken);
+                    }
+                    else if (input.Equals("stop", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        await StopAsync(cancellationToken);
                     }
                 }
                 catch (Exception e)
