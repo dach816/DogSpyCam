@@ -32,6 +32,13 @@ namespace DogSpyCam
                             var config = x.GetService<IOptions<VideoConfig>>().Value;
                             return new VideoClient(config.VideoSavePath);
                         });
+
+                        services.Configure<CloudConfig>(hostContext.Configuration.GetSection("Cloud"));
+                        services.AddSingleton<ICloudClient>(x =>
+                        {
+                            var config = x.GetService<IOptions<CloudConfig>>().Value;
+                            return new CloudClient(config.Username, config.Password, config.BaseUrl, config.SavePath);
+                        });
                     });
                 await hostBuilder.RunConsoleAsync();
             }

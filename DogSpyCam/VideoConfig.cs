@@ -1,4 +1,4 @@
-﻿namespace DogSpyCam.Configuration
+﻿namespace DogSpyCam
 {
     public class VideoConfig
     {

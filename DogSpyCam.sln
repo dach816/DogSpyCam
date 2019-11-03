@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogSpyCam", "DogSpyCam\DogS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraClient", "CameraClient\CameraClient.csproj", "{AF5DBE38-A128-4BAB-BA18-91F29D5DBBE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudClient", "CloudClient\CloudClient.csproj", "{91F90E03-2B27-46C2-BAFD-DAD87F6F461D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{AF5DBE38-A128-4BAB-BA18-91F29D5DBBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF5DBE38-A128-4BAB-BA18-91F29D5DBBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF5DBE38-A128-4BAB-BA18-91F29D5DBBE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91F90E03-2B27-46C2-BAFD-DAD87F6F461D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F90E03-2B27-46C2-BAFD-DAD87F6F461D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91F90E03-2B27-46C2-BAFD-DAD87F6F461D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F90E03-2B27-46C2-BAFD-DAD87F6F461D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@
     <RuntimeIdentifiers>win8-arm;ubuntu.14.04-arm;ubuntu.16.04-arm</RuntimeIdentifiers>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="appsettings.json"/>
+    <None Remove="appsettings.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="appsettings.json">
@@ -14,9 +14,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App"/>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CameraClient\CameraClient.csproj"/>
+    <ProjectReference Include="..\CameraClient\CameraClient.csproj" />
+    <ProjectReference Include="..\CloudClient\CloudClient.csproj" />
   </ItemGroup>
 </Project>
